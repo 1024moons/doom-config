@@ -73,8 +73,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(with-eval-after-load 'smartparens
-  (smartparens-strict-mode)
-  (map! :leader :desc "Forward Slurp" :n "C-." 'sp-forward-slurp-sexp)
-  (map! :leader :desc "Forward Barf" :n "C-," 'sp-forward-barf-sexp)
-  (map! :leader :desc "Raise Slurp" :n "C-/" 'sp-raise-sexp))
