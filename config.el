@@ -37,7 +37,7 @@
 (let ((font "Miracode"))
   (when (doom-font-exists-p font)
     (setq doom-font (font-spec :family font :size 18))
-    (setq doom-big-font (font-spec :family font :size 18))))
+    (setq doom-big-font (font-spec :family font :size 40))))
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
