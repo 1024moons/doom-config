@@ -96,3 +96,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(defun tq-open-org ()
+  "Open the org directory"
+  (interactive)
+  (find-file org-directory))
+(map! :leader :n "o o" #'tq-open-org)
