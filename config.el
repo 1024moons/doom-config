@@ -34,10 +34,27 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one-light)
 
-(let ((font "Miracode"))
-  (when (doom-font-exists-p font)
-    (setq doom-font (font-spec :family font :size 18))
-    (setq doom-big-font (font-spec :family font :size 40))))
+(defun tq-load-fonts ()
+  "Load the fonts I use for my config"
+  (let ((font-family "Miracode"))
+    (when (doom-font-exists-p font-family)
+      (setq doom-font (font-spec :family font-family :size 18))
+      (setq doom-big-font (font-spec :family font-family :size 40)))))
+
+
+
+;; Prevent resizing the frame when the font changes
+;; which happens right on startup
+(setq frame-inhibit-implied-resize t)
+
+;; Further daemonic handling
+(if (daemonp)
+    (progn
+      (add-hook! 'server-after-make-frame-hook
+        (tq-load-fonts)
+        (doom/reload-font)))
+  (tq-load-fonts))
+
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
